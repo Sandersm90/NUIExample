@@ -22,7 +22,7 @@ namespace NUIExample
             // use ingame: /sendnui
             API.RegisterCommand("sendnui", new Action<dynamic, List<dynamic>, string>(SendToNUI), false);
 
-            // Register the callback, opens up http://exnui/helloworld
+            // Register the callback, opens up http://exnui/helloworld (exnui = the name of the folder this resource is in)
             RegisterNUICallback("helloworld", ExecuteHelloWorld);
         }
 
@@ -39,12 +39,16 @@ namespace NUIExample
             API.SendNuiMessage(JsonConvert.SerializeObject(obj));
 
             Debug.Write("Send NUI Message");
+            API.SetNuiFocus(true, true);
         }
 
         private static CallbackDelegate ExecuteHelloWorld(dynamic arg)
         {
             Debug.Write("HelloWorld got executed!");
-            Debug.Write($"We got this in our object: {arg.helloworld}");
+            Debug.Write($"We got this in our object: {arg.name} and {arg.lastname}");
+
+            API.SetNuiFocus(false, false);
+
             return null;
         }
 

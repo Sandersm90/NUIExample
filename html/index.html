@@ -3,9 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>NUI Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <style>
+      html, body {
+        /* otherwise the full screen would be white */
+        background: none;
+      }
+    </style>
   </head>
   <body>
-    <span id="helloworldShower">asd</span>
+    <center>
+        <span id="helloworldShower"></span><br>
+        <button class="btn btn-primary" id="sendHello">Send to Client</button>
+    </center>
     <!-- Scripts below -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
